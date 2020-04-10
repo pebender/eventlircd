@@ -22,7 +22,7 @@
 # linux/input.h header file.
 #
 
-ABSOLUTE_LINUX_INPUT_H=@ABSOLUTE_LINUX_INPUT_H@
+INPUT_EVENT_CODE_HEADER_FILE=@INPUT_EVENT_CODE_HEADER_FILE@
 AWK=@AWK@
 
 rm -f event_name_to_code.h
@@ -31,7 +31,7 @@ ${AWK} "
     BEGIN {
       printf(\"#ifndef _EVENTLIRCD_EVENT_NAME_TO_CODE_H_\n\");
       printf(\"#define _EVENTLIRCD_EVENT_NAME_TO_CODE_H_ 1\n\");
-      printf(\"#include <${ABSOLUTE_LINUX_INPUT_H}>\n\");
+      printf(\"#include <${INPUT_EVENT_CODE_HEADER_FILE}>\n\");
       printf(\"#include <linux/types.h>\n\");
       printf(\"static const struct {\n\");
       printf(\"\tconst char *name;\n\");
@@ -105,4 +105,4 @@ ${AWK} "
       printf(\"};\n\");
       printf(\"#endif\n\");
     };
-    " < ${ABSOLUTE_LINUX_INPUT_H} >> event_name_to_code.h
+    " < ${INPUT_EVENT_CODE_HEADER_FILE} >> event_name_to_code.h

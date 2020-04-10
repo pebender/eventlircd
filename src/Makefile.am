@@ -5,13 +5,13 @@ eventlircd_LDFLAGS = $(AM_CFLAGS) $(LIBUDEV_LIBS)
 
 nodist_eventlircd_SOURCES = event_name_to_code.h evkey_code_to_name.h evkey_type.h
 
-event_name_to_code.h: event_name_to_code.h.sh $(ABSOLUTE_LINUX_INPUT_H)
+event_name_to_code.h: event_name_to_code.h.sh $(INPUT_EVENT_CODE_HEADER_FILE)
 	sh event_name_to_code.h.sh
 
-evkey_code_to_name.h: evkey_code_to_name.h.sh $(ABSOLUTE_LINUX_INPUT_H)
+evkey_code_to_name.h: evkey_code_to_name.h.sh $(INPUT_EVENT_CODE_HEADER_FILE)
 	sh evkey_code_to_name.h.sh
 
-evkey_type.h: evkey_type.h.sh $(ABSOLUTE_LINUX_INPUT_H)
+evkey_type.h: evkey_type.h.sh $(INPUT_EVENT_CODE_HEADER_FILE)
 	sh evkey_type.h.sh
 
 input.c: event_name_to_code.h evkey_code_to_name.h evkey_type.h

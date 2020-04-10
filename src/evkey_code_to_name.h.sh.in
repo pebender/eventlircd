@@ -29,7 +29,7 @@
 # as a function of other evkey defines) can be ignored.
 #
 
-ABSOLUTE_LINUX_INPUT_H=@ABSOLUTE_LINUX_INPUT_H@
+INPUT_EVENT_CODE_HEADER_FILE=@INPUT_EVENT_CODE_HEADER_FILE@
 AWK=@AWK@
 
 rm -f evkey_code_to_name.h
@@ -38,7 +38,7 @@ ${AWK} --non-decimal-data "
     BEGIN {
       printf(\"#ifndef _EVENTLIRCD_EVKEY_CODE_TO_NAME_H_\n\");
       printf(\"#define _EVENTLIRCD_EVKEY_CODE_TO_NAME_H_ 1\n\");
-      printf(\"#include <${ABSOLUTE_LINUX_INPUT_H}>\n\");
+      printf(\"#include <${INPUT_EVENT_CODE_HEADER_FILE}>\n\");
       printf(\"static const char *evkey_code_to_name[KEY_MAX] = {\n\");
       code_cur = -1;
     };
@@ -62,4 +62,4 @@ ${AWK} --non-decimal-data "
       printf(\"};\n\");
       printf(\"#endif\n\");
     }
-    " < ${ABSOLUTE_LINUX_INPUT_H} >> evkey_code_to_name.h
+    " < ${INPUT_EVENT_CODE_HEADER_FILE} >> evkey_code_to_name.h

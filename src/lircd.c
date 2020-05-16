@@ -24,6 +24,7 @@
 #include <fcntl.h>        /* POSIX */
 #include <stdio.h>        /* C89 */
 #include <stdlib.h>       /* C89 */
+#include <string.h>       /* C89 */
 #include <sys/socket.h>   /* POSIX */
 #include <sys/stat.h>     /* POSIX */
 #include <sys/types.h>    /* POSIX */
